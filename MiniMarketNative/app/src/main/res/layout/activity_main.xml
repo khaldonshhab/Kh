@@ -1,0 +1,205 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F5F9"
+    android:fillViewport="true"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🛒 ميني ماركت - إدارة الأسعار"
+            android:textColor="#1769AA"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:padding="14dp"
+            android:elevation="2dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/totalItems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#1769AA"
+                    android:textSize="23sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عدد المواد"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#DCE5EF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/totalValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#1769AA"
+                    android:textSize="23sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مجموع الأسعار"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/formTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="إضافة مادة جديدة"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#263445"
+            android:paddingTop="18dp"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/barcodeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="رقم الباركود"
+            android:inputType="text"
+            android:singleLine="true"
+            android:padding="13dp"
+            android:backgroundTint="#1769AA"/>
+
+        <Button
+            android:id="@+id/scanButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 مسح الباركود بالكاميرا"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="اسم المادة"
+            android:inputType="textCapSentences"
+            android:singleLine="true"
+            android:padding="13dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1769AA"/>
+
+        <EditText
+            android:id="@+id/priceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="السعر"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:padding="13dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1769AA"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="💾 حفظ المادة"/>
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="تفريغ"
+                android:layout_marginStart="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="النسخ الاحتياطي والاستعادة"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#263445"
+            android:paddingTop="20dp"
+            android:paddingBottom="5dp"/>
+
+        <Button
+            android:id="@+id/exportButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📥 تصدير المواد إلى CSV"/>
+
+        <Button
+            android:id="@+id/importButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📤 استيراد المواد من CSV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="قائمة المواد المخزنة"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#263445"
+            android:paddingTop="20dp"
+            android:paddingBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/searchInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="🔍 ابحث بالاسم أو الباركود"
+            android:singleLine="true"
+            android:padding="12dp"
+            android:backgroundTint="#AAB8C7"/>
+
+        <TextView
+            android:id="@+id/resultsCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="عدد النتائج: 0"
+            android:textColor="#64748B"
+            android:paddingTop="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/itemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.MiniMarket" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1769AA</item>
+        <item name="colorPrimaryVariant">#10548C</item>
+        <item name="colorSecondary">#27AE60</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:statusBarColor">#10548C</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>
