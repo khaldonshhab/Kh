@@ -1,0 +1,124 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F5F9"
+    android:fillViewport="true"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="قراءة أسعار المواد"
+            android:textColor="#000000"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="امسح باركود مادة محفوظة مسبقاً في التطبيق لعرض سعرها فقط."
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:paddingBottom="18dp" />
+
+        <EditText
+            android:id="@+id/lookupBarcodeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="أدخل رقم الباركود"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:inputType="text"
+            android:singleLine="true"
+            android:padding="14dp"
+            android:backgroundTint="#000000" />
+
+        <Button
+            android:id="@+id/lookupScanButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="مسح الباركود بالكاميرا"
+            android:layout_marginTop="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#FFFFFF"
+            android:elevation="3dp"
+            android:padding="22dp"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/lookupMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="امسح باركود مادة مسجلة أو أدخل الرقم يدوياً"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/lookupItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/lookupItemBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="السعر"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:paddingTop="22dp" />
+
+            <TextView
+                android:id="@+id/lookupItemPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="4dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/lookupClearButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="مسح النتيجة"
+            android:layout_marginTop="18dp" />
+
+        <Button
+            android:id="@+id/lookupBackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="العودة إلى إدارة المواد"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
