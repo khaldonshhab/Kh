@@ -189,10 +189,11 @@ class MainActivity : AppCompatActivity() {
 
             val details = TextView(this).apply {
                 val rate = db.latestExchangeRate()?.sypPerUsd
-                val usdLine = if (rate != null) "\nبالدولار: ${formatPrice(item.price / rate)} USD" else ""
-                text = "${item.name}\nالباركود: ${item.barcode}\nبالليرة: ${formatPrice(item.price)} SYP$usdLine"
-                textSize = 15f
-                setTextColor(0xFF000000.toInt())
+                val usdLine = if (rate != null) "\nبالدولار: ${formatPrice(item.price / rate)} USD" else "\nأدخل سعر الصرف لعرض السعر بالدولار"
+                text = "${item.name}\nالباركود: ${item.barcode}\nبالليرة السورية: ${formatPrice(item.price)} ل.س$usdLine"
+                textSize = 16f
+                setTextColor(0xFF111827.toInt())
+                setTypeface(null, android.graphics.Typeface.BOLD)
                 setPadding(2, 2, 2, 8)
             }
 
