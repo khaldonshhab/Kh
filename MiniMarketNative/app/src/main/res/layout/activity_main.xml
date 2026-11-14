@@ -15,11 +15,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="🛒 ميني ماركت - إدارة الأسعار"
-            android:textColor="#1769AA"
+            android:textColor="#000000"
             android:textSize="21sp"
             android:textStyle="bold"
             android:gravity="center"
             android:padding="12dp" />
+
+        <Button
+            android:id="@+id/priceLookupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="قراءة سعر مادة مسجلة"
+            android:layout_marginBottom="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#1769AA"
+                    android:textColor="#000000"
                     android:textSize="23sp"
                     android:textStyle="bold"/>
                 <TextView
@@ -65,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#1769AA"
+                    android:textColor="#000000"
                     android:textSize="23sp"
                     android:textStyle="bold"/>
                 <TextView
@@ -82,7 +89,7 @@
             android:text="إضافة مادة جديدة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#263445"
+            android:textColor="#000000"
             android:paddingTop="18dp"
             android:paddingBottom="8dp"/>
 
@@ -94,7 +101,7 @@
             android:inputType="text"
             android:singleLine="true"
             android:padding="13dp"
-            android:backgroundTint="#1769AA"/>
+            android:backgroundTint="#000000"/>
 
         <Button
             android:id="@+id/scanButton"
@@ -112,7 +119,7 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#1769AA"/>
+            android:backgroundTint="#000000"/>
 
         <EditText
             android:id="@+id/priceInput"
@@ -123,7 +130,7 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#1769AA"/>
+            android:backgroundTint="#000000"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -151,7 +158,7 @@
             android:text="النسخ الاحتياطي والاستعادة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#263445"
+            android:textColor="#000000"
             android:paddingTop="20dp"
             android:paddingBottom="5dp"/>
 
@@ -173,7 +180,7 @@
             android:text="قائمة المواد المخزنة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#263445"
+            android:textColor="#000000"
             android:paddingTop="20dp"
             android:paddingBottom="5dp"/>
 
@@ -184,14 +191,14 @@
             android:hint="🔍 ابحث بالاسم أو الباركود"
             android:singleLine="true"
             android:padding="12dp"
-            android:backgroundTint="#AAB8C7"/>
+            android:backgroundTint="#000000"/>
 
         <TextView
             android:id="@+id/resultsCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="عدد النتائج: 0"
-            android:textColor="#64748B"
+            android:textColor="#000000"
             android:paddingTop="8dp"/>
 
         <LinearLayout
