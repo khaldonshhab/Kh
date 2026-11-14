@@ -5,76 +5,73 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-data class MarketItem(
-    val id: Long,
-    val barcode: String,
-    val name: String,
-    val price: Double
-)
+data class MarketItem(val id: Long, val barcode: String, val name: String, val price: Double)
+data class ExchangeRate(val sypPerUsd: Double, val updatedAt: Long)
 
-class MarketDb(context: Context) :
-    SQLiteOpenHelper(context, "market.db", null, 1) {
-
+class MarketDb(context: Context) : SQLiteOpenHelper(context, "market.db", null, 2) {
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(
-            """CREATE TABLE items (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                barcode TEXT NOT NULL UNIQUE,
-                name TEXT NOT NULL,
-                price REAL NOT NULL CHECK(price >= 0)
-            )"""
-        )
+        db.execSQL("""CREATE TABLE items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            barcode TEXT NOT NULL UNIQUE,
+            name TEXT NOT NULL,
+            price REAL NOT NULL CHECK(price >= 0)
+        )""")
+        createExchangeRatesTable(db)
+    }
+
+    private fun createExchangeRatesTable(db: SQLiteDatabase) {
+        db.execSQL("""CREATE TABLE IF NOT EXISTS exchange_rates (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            syp_per_usd REAL NOT NULL CHECK(syp_per_usd > 0),
+            updated_at INTEGER NOT NULL
+        )""")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Keep existing data when schema versions are added.
+        if (oldVersion < 2) createExchangeRatesTable(db)
+    }
+
+    fun saveExchangeRate(sypPerUsd: Double) {
+        require(sypPerUsd.isFinite() && sypPerUsd > 0) { "سعر صرف غير صالح" }
+        val values = ContentValues().apply {
+            put("syp_per_usd", sypPerUsd)
+            put("updated_at", System.currentTimeMillis())
+        }
+        writableDatabase.insertOrThrow("exchange_rates", null, values)
+    }
+
+    fun latestExchangeRate(): ExchangeRate? {
+        readableDatabase.rawQuery("SELECT syp_per_usd, updated_at FROM exchange_rates ORDER BY updated_at DESC, id DESC LIMIT 1", null).use { c ->
+            if (c.moveToFirst()) return ExchangeRate(c.getDouble(0), c.getLong(1))
+        }
+        return null
     }
 
     fun all(): List<MarketItem> {
         val result = mutableListOf<MarketItem>()
-        readableDatabase.rawQuery(
-            "SELECT id, barcode, name, price FROM items ORDER BY name COLLATE NOCASE",
-            null
-        ).use { c ->
-            while (c.moveToNext()) {
-                result.add(
-                    MarketItem(c.getLong(0), c.getString(1), c.getString(2), c.getDouble(3))
-                )
-            }
+        readableDatabase.rawQuery("SELECT id, barcode, name, price FROM items ORDER BY name COLLATE NOCASE", null).use { c ->
+            while (c.moveToNext()) result.add(MarketItem(c.getLong(0), c.getString(1), c.getString(2), c.getDouble(3)))
         }
         return result
     }
 
     fun findByBarcode(barcode: String): MarketItem? {
-        readableDatabase.query(
-            "items", arrayOf("id", "barcode", "name", "price"),
-            "barcode = ?", arrayOf(barcode), null, null, null
-        ).use { c ->
-            if (c.moveToFirst()) {
-                return MarketItem(c.getLong(0), c.getString(1), c.getString(2), c.getDouble(3))
-            }
+        readableDatabase.query("items", arrayOf("id", "barcode", "name", "price"), "barcode = ?", arrayOf(barcode), null, null, null).use { c ->
+            if (c.moveToFirst()) return MarketItem(c.getLong(0), c.getString(1), c.getString(2), c.getDouble(3))
         }
         return null
     }
 
     fun save(id: Long?, barcode: String, name: String, price: Double): Long {
-        val values = ContentValues().apply {
-            put("barcode", barcode)
-            put("name", name)
-            put("price", price)
-        }
-        return if (id == null) {
-            writableDatabase.insertOrThrow("items", null, values)
-        } else {
+        val values = ContentValues().apply { put("barcode", barcode); put("name", name); put("price", price) }
+        return if (id == null) writableDatabase.insertOrThrow("items", null, values) else {
             val changed = writableDatabase.update("items", values, "id = ?", arrayOf(id.toString()))
             if (changed == 0) throw IllegalStateException("المادة غير موجودة")
             id
         }
     }
 
-    fun delete(id: Long) {
-        writableDatabase.delete("items", "id = ?", arrayOf(id.toString()))
-    }
+    fun delete(id: Long) { writableDatabase.delete("items", "id = ?", arrayOf(id.toString())) }
 
     fun replaceAll(rows: List<Triple<String, String, Double>>) {
         val db = writableDatabase
@@ -82,17 +79,11 @@ class MarketDb(context: Context) :
         try {
             db.delete("items", null, null)
             rows.forEach { (barcode, name, price) ->
-                val v = ContentValues().apply {
-                    put("barcode", barcode)
-                    put("name", name)
-                    put("price", price)
-                }
+                val v = ContentValues().apply { put("barcode", barcode); put("name", name); put("price", price) }
                 db.insertOrThrow("items", null, v)
             }
             db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
-        }
+        } finally { db.endTransaction() }
     }
 
     fun merge(rows: List<Triple<String, String, Double>>) {
@@ -100,16 +91,10 @@ class MarketDb(context: Context) :
         db.beginTransaction()
         try {
             rows.forEach { (barcode, name, price) ->
-                val v = ContentValues().apply {
-                    put("barcode", barcode)
-                    put("name", name)
-                    put("price", price)
-                }
+                val v = ContentValues().apply { put("barcode", barcode); put("name", name); put("price", price) }
                 db.insertWithOnConflict("items", null, v, SQLiteDatabase.CONFLICT_REPLACE)
             }
             db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
-        }
+        } finally { db.endTransaction() }
     }
 }
