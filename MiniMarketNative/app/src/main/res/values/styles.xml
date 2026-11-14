@@ -1,26 +1,20 @@
 <resources>
     <style name="Theme.MiniMarket" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#000000</item>
-        <item name="colorPrimaryVariant">#000000</item>
-        <item name="colorSecondary">#000000</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorOnSurface">#000000</item>
-        <item name="android:textColorPrimary">#000000</item>
-        <item name="android:textColorSecondary">#000000</item>
-        <item name="android:fontFamily">sans</item>
-        <item name="android:statusBarColor">#000000</item>
-        <item name="android:navigationBarColor">#FFFFFF</item>
-        <item name="android:windowLightNavigationBar">true</item>
-        <item name="android:colorAccent">#000000</item>
-        <item name="materialButtonStyle">@style/BlackButton</item>
+        <item name="colorPrimary">#087F73</item><item name="colorPrimaryVariant">#075E57</item>
+        <item name="colorSecondary">#E89A52</item><item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorOnSurface">#173B3F</item><item name="android:textColorPrimary">#173B3F</item>
+        <item name="android:textColorSecondary">#52666A</item><item name="android:fontFamily">sans</item>
+        <item name="android:statusBarColor">#075E57</item><item name="android:navigationBarColor">#F4F7F5</item>
+        <item name="android:windowLightNavigationBar">true</item><item name="android:colorAccent">#087F73</item>
+        <item name="materialButtonStyle">@style/MiniMarketButton</item>
     </style>
-
-    <style name="BlackButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">#000000</item>
+    <style name="MiniMarketButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">#FFFFFF</item><item name="backgroundTint">#087F73</item>
+        <item name="cornerRadius">14dp</item><item name="android:minHeight">48dp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
-
-    <style name="BlackOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">#000000</item>
-        <item name="strokeColor">#000000</item>
+    <style name="MiniMarketOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">#075E57</item><item name="strokeColor">#168A83</item>
+        <item name="cornerRadius">14dp</item><item name="android:textAllCaps">false</item>
     </style>
 </resources>
