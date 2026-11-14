@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PriceLookupActivity::class.java))
         }
 
+        binding.exchangeRateButton.setOnClickListener {
+            startActivity(Intent(this, ExchangeRateActivity::class.java))
+        }
+
         binding.barcodeInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -179,7 +183,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             val details = TextView(this).apply {
-                text = "${item.name}\nالباركود: ${item.barcode}\nالسعر: ${formatPrice(item.price)}"
+                val rate = db.latestExchangeRate()?.sypPerUsd
+                val usdLine = if (rate != null) "\nبالدولار: ${formatPrice(item.price / rate)} USD" else ""
+                text = "${item.name}\nالباركود: ${item.barcode}\nبالليرة: ${formatPrice(item.price)} SYP$usdLine"
                 textSize = 15f
                 setTextColor(0xFF000000.toInt())
                 setPadding(2, 2, 2, 8)
