@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
             val details = TextView(this).apply {
                 text = "${item.name}\nالباركود: ${item.barcode}\nالسعر: ${formatPrice(item.price)}"
                 textSize = 15f
-                setTextColor(0xFF263445.toInt())
+                setTextColor(0xFF000000.toInt())
                 setPadding(2, 2, 2, 8)
             }
 
