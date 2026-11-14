@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="🛒 ميني ماركت - إدارة الأسعار"
-            android:textColor="#000000"
+            android:textColor="#111827"
             android:textSize="21sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#000000"
+                    android:textColor="#111827"
                     android:textSize="23sp"
                     android:textStyle="bold"/>
                 <TextView
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#000000"
+                    android:textColor="#111827"
                     android:textSize="23sp"
                     android:textStyle="bold"/>
                 <TextView
@@ -96,7 +96,7 @@
             android:text="إضافة مادة جديدة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#000000"
+            android:textColor="#111827"
             android:paddingTop="18dp"
             android:paddingBottom="8dp"/>
 
@@ -108,7 +108,7 @@
             android:inputType="text"
             android:singleLine="true"
             android:padding="13dp"
-            android:backgroundTint="#000000"
+            android:backgroundTint="#111827"
             android:textColor="#111827"
             android:textColorHint="#64748B"
             android:background="@drawable/input_field_background"/>
@@ -129,7 +129,7 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#000000"
+            android:backgroundTint="#111827"
             android:textColor="#111827"
             android:textColorHint="#64748B"
             android:background="@drawable/input_field_background"/>
@@ -143,7 +143,7 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#000000"
+            android:backgroundTint="#111827"
             android:textColor="#111827"
             android:textColorHint="#64748B"
             android:background="@drawable/input_field_background"/>
@@ -174,7 +174,7 @@
             android:text="النسخ الاحتياطي والاستعادة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#000000"
+            android:textColor="#111827"
             android:paddingTop="20dp"
             android:paddingBottom="5dp"/>
 
@@ -196,7 +196,7 @@
             android:text="قائمة المواد المخزنة"
             android:textStyle="bold"
             android:textSize="17sp"
-            android:textColor="#000000"
+            android:textColor="#111827"
             android:paddingTop="20dp"
             android:paddingBottom="5dp"/>
 
@@ -207,7 +207,7 @@
             android:hint="🔍 ابحث بالاسم أو الباركود"
             android:singleLine="true"
             android:padding="12dp"
-            android:backgroundTint="#000000"
+            android:backgroundTint="#111827"
             android:textColor="#111827"
             android:textColorHint="#64748B"
             android:background="@drawable/input_field_background"/>
@@ -217,7 +217,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="عدد النتائج: 0"
-            android:textColor="#000000"
+            android:textColor="#111827"
             android:paddingTop="8dp"/>
 
         <LinearLayout
