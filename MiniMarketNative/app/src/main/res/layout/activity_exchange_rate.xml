@@ -1,0 +1,40 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#F4F7F5" android:fillViewport="true" android:layoutDirection="rtl">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="سعر صرف العملات" android:textColor="#173B3F" android:textSize="25sp"
+            android:textStyle="bold" android:gravity="center" android:padding="18dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="حدّث سعر الدولار مقابل الليرة السورية يومياً. سيُستخدم آخر سعر محفوظ في حساب أسعار المواد تلقائياً."
+            android:textColor="#52666A" android:textSize="15sp" android:gravity="center" android:paddingBottom="22dp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#FFFFFF" android:elevation="3dp" android:padding="22dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="سعر الدولار الواحد بالليرة السورية" android:textColor="#173B3F"
+                android:textStyle="bold" android:textSize="16sp" android:gravity="center" />
+            <EditText android:id="@+id/exchangeRateInput" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="مثال: 15000" android:inputType="numberDecimal"
+                android:singleLine="true" android:gravity="center" android:textSize="23sp"
+                android:textColor="#000000" android:textColorHint="#718184" android:padding="16dp"
+                android:layout_marginTop="12dp" android:backgroundTint="#168A83" />
+            <Button android:id="@+id/saveExchangeRateButton" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="حفظ سعر الصرف" android:layout_marginTop="16dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#E2F2ED" android:padding="20dp" android:layout_marginTop="22dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="سعر الصرف المعتمد حالياً" android:textColor="#315B55" android:textSize="15sp" android:gravity="center" />
+            <TextView android:id="@+id/currentExchangeRate" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="لم يتم إدخال سعر صرف بعد"
+                android:textColor="#087F73" android:textSize="24sp" android:textStyle="bold"
+                android:gravity="center" android:paddingTop="12dp" />
+            <TextView android:id="@+id/exchangeRateUpdatedAt" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="أدخل قيمة الليرة السورية مقابل دولار واحد"
+                android:textColor="#52666A" android:textSize="13sp" android:gravity="center" android:paddingTop="8dp" />
+        </LinearLayout>
+        <Button android:id="@+id/exchangeRateBackButton" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="العودة" android:layout_marginTop="22dp" />
+    </LinearLayout>
+</ScrollView>
