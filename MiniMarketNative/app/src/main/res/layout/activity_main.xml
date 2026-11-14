@@ -108,7 +108,10 @@
             android:inputType="text"
             android:singleLine="true"
             android:padding="13dp"
-            android:backgroundTint="#000000"/>
+            android:backgroundTint="#000000"
+            android:textColor="#111827"
+            android:textColorHint="#64748B"
+            android:background="@drawable/input_field_background"/>
 
         <Button
             android:id="@+id/scanButton"
@@ -126,7 +129,10 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#000000"/>
+            android:backgroundTint="#000000"
+            android:textColor="#111827"
+            android:textColorHint="#64748B"
+            android:background="@drawable/input_field_background"/>
 
         <EditText
             android:id="@+id/priceInput"
@@ -137,7 +143,10 @@
             android:singleLine="true"
             android:padding="13dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#000000"/>
+            android:backgroundTint="#000000"
+            android:textColor="#111827"
+            android:textColorHint="#64748B"
+            android:background="@drawable/input_field_background"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -198,7 +207,10 @@
             android:hint="🔍 ابحث بالاسم أو الباركود"
             android:singleLine="true"
             android:padding="12dp"
-            android:backgroundTint="#000000"/>
+            android:backgroundTint="#000000"
+            android:textColor="#111827"
+            android:textColorHint="#64748B"
+            android:background="@drawable/input_field_background"/>
 
         <TextView
             android:id="@+id/resultsCount"
