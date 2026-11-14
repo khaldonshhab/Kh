@@ -4,11 +4,11 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical" android:padding="18dp">
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="قراءة أسعار المواد" android:textColor="#173B3F" android:textSize="25sp"
+            android:text="قراءة أسعار المواد" android:textColor="#111827" android:textSize="25sp"
             android:textStyle="bold" android:gravity="center" android:padding="18dp" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="امسح باركود مادة محفوظة مسبقاً لعرض سعرها بالليرة والدولار."
-            android:textColor="#52666A" android:textSize="15sp" android:gravity="center" android:paddingBottom="18dp" />
+            android:textColor="#475569" android:textSize="15sp" android:gravity="center" android:paddingBottom="18dp" />
         <EditText android:id="@+id/lookupBarcodeInput" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="أدخل رقم الباركود" android:textColor="#000000"
             android:textColorHint="#718184" android:inputType="text" android:singleLine="true"
@@ -20,15 +20,15 @@
             android:elevation="3dp" android:padding="22dp" android:layout_marginTop="24dp">
             <TextView android:id="@+id/lookupMessage" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:text="امسح باركود مادة مسجلة أو أدخل الرقم يدوياً"
-                android:textColor="#52666A" android:textSize="15sp" android:gravity="center" android:paddingBottom="12dp" />
+                android:textColor="#475569" android:textSize="15sp" android:gravity="center" android:paddingBottom="12dp" />
             <TextView android:id="@+id/lookupItemName" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:textColor="#173B3F" android:textSize="23sp"
+                android:layout_height="wrap_content" android:textColor="#111827" android:textSize="23sp"
                 android:textStyle="bold" android:gravity="center" />
             <TextView android:id="@+id/lookupItemBarcode" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:textColor="#52666A" android:textSize="14sp"
+                android:layout_height="wrap_content" android:textColor="#475569" android:textSize="14sp"
                 android:gravity="center" android:paddingTop="8dp" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="السعر بالليرة السورية" android:textColor="#52666A" android:textSize="15sp"
+                android:text="السعر بالليرة السورية" android:textColor="#475569" android:textSize="15sp"
                 android:gravity="center" android:paddingTop="22dp" />
             <TextView android:id="@+id/lookupItemPrice" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:textColor="#087F73" android:textSize="34sp"
@@ -36,7 +36,7 @@
             <View android:layout_width="match_parent" android:layout_height="1dp"
                 android:background="#E5EEEA" android:layout_marginTop="18dp" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="السعر بالدولار الأمريكي" android:textColor="#52666A" android:textSize="15sp"
+                android:text="السعر بالدولار الأمريكي" android:textColor="#475569" android:textSize="15sp"
                 android:gravity="center" android:paddingTop="18dp" />
             <TextView android:id="@+id/lookupItemUsdPrice" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:textColor="#D17B35" android:textSize="30sp"
