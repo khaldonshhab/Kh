@@ -33,11 +33,24 @@ class MarketDb(context: Context) : SQLiteOpenHelper(context, "market.db", null, 
 
     fun saveExchangeRate(sypPerUsd: Double) {
         require(sypPerUsd.isFinite() && sypPerUsd > 0) { "سعر صرف غير صالح" }
-        val values = ContentValues().apply {
-            put("syp_per_usd", sypPerUsd)
-            put("updated_at", System.currentTimeMillis())
+        val database = writableDatabase
+        database.beginTransaction()
+        try {
+            val previousRate = latestExchangeRate()?.sypPerUsd
+            // Keep every product's USD value constant while recalculating its SYP price.
+            if (previousRate != null && previousRate > 0.0) {
+                val factor = sypPerUsd / previousRate
+                database.execSQL("UPDATE items SET price = price * ?", arrayOf(factor))
+            }
+            val values = ContentValues().apply {
+                put("syp_per_usd", sypPerUsd)
+                put("updated_at", System.currentTimeMillis())
+            }
+            database.insertOrThrow("exchange_rates", null, values)
+            database.setTransactionSuccessful()
+        } finally {
+            database.endTransaction()
         }
-        writableDatabase.insertOrThrow("exchange_rates", null, values)
     }
 
     fun latestExchangeRate(): ExchangeRate? {
