@@ -97,6 +97,11 @@ class MainActivity : AppCompatActivity() {
         renderItems()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (::binding.isInitialized && ::db.isInitialized) renderItems()
+    }
+
     private fun lookupBarcode(code: String) {
         val found = db.findByBarcode(code)
         if (found != null) {
