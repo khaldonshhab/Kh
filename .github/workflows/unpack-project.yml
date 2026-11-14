@@ -1,0 +1,23 @@
+name: Unpack Android Studio project
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/unpack-project.yml'
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract project sources
+        run: |
+          unzip -oq MiniMarketNative-AndroidStudio.zip -d .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add MiniMarketNative/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Android Studio project source files"
+            git push
+          fi
